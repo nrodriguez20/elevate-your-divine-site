@@ -20,6 +20,8 @@ const {
     <slot />
 
     <script is:inline>
+      let hasUserNavigated = false;
+
       const FADE_MS = 300;
 
       function sectionFromTarget(target) {
@@ -92,24 +94,26 @@ const {
       }
 
       function ensureHash(target, rawTarget) {
-        // Preserve extended hashes like "#program:web"
+        // If user did not navigate and the URL had no hash, don't set one.
+        if (!hasUserNavigated && !location.hash) return;
+
         const desiredHash =
           location.hash && location.hash.startsWith(`#${target}`)
             ? location.hash
             : `#${target}`;
 
-        // If caller passed "program:web", prefer that
-        const requestedHash = rawTarget && String(rawTarget).includes(":")
-          ? `#${rawTarget}`
-          : desiredHash;
+        const requestedHash =
+          rawTarget && String(rawTarget).includes(":") ? `#${rawTarget}` : desiredHash;
 
         history.replaceState(null, "", requestedHash);
       }
+
 
       // Click-based navigation (navbar buttons)
       document.addEventListener("click", (e) => {
         const btn = e.target.closest("[data-nav]");
         if (!btn) return;
+        hasUserNavigated = true;
         const target = btn.getAttribute("data-target");
         if (target) showSection(target);
       });
