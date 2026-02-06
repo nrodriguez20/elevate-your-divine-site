@@ -1,0 +1,130 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Elevate your Divine, LLC",
+  description = "Life coaching, web design, and mobile notary services.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+
+  <body class="min-h-screen bg-gradient-to-bl from-zinc-900 via-zinc-800 to-zinc-300 text-white antialiased">
+    <slot />
+
+    <script is:inline>
+      const FADE_MS = 300;
+
+      function sectionFromTarget(target) {
+        // Supports "program:web" by extracting "program"
+        return String(target || "").split(":")[0];
+      }
+
+      function showSection(rawTarget) {
+        const target = sectionFromTarget(rawTarget);
+
+        const sections = Array.from(document.querySelectorAll("[data-section]"));
+        const next = document.querySelector(`[data-section="${target}"]`);
+
+        // Fallback to services if unknown
+        if (!next) {
+          if (target !== "services") return showSection("services");
+          return;
+        }
+
+        const current = sections.find((s) => !s.classList.contains("hidden")) || null;
+        if (current === next) {
+          // Still update active nav highlight + URL normalization
+          updateActiveNav(target);
+          ensureHash(target, rawTarget);
+          return;
+        }
+
+        updateActiveNav(target);
+
+        // Fade out current, then show next
+        if (current) {
+          current.classList.add("opacity-0");
+          setTimeout(() => {
+            current.classList.add("hidden");
+            current.classList.remove("opacity-100");
+
+            next.classList.remove("hidden");
+            next.classList.add("opacity-0");
+            requestAnimationFrame(() => {
+              next.classList.remove("opacity-0");
+              next.classList.add("opacity-100");
+            });
+          }, FADE_MS);
+        } else {
+          // First load safety
+          sections.forEach((s) => {
+            s.classList.add("hidden");
+            s.classList.remove("opacity-100");
+            s.classList.add("opacity-0");
+          });
+
+          next.classList.remove("hidden");
+          requestAnimationFrame(() => {
+            next.classList.remove("opacity-0");
+            next.classList.add("opacity-100");
+          });
+        }
+
+        ensureHash(target, rawTarget);
+      }
+
+      function updateActiveNav(target) {
+        const buttons = document.querySelectorAll("[data-nav]");
+        buttons.forEach((b) => {
+          const isActive = b.getAttribute("data-target") === target;
+          b.setAttribute("aria-current", isActive ? "page" : "false");
+          b.classList.toggle("ring-2", isActive);
+          b.classList.toggle("ring-white/30", isActive);
+        });
+      }
+
+      function ensureHash(target, rawTarget) {
+        // Preserve extended hashes like "#program:web"
+        const desiredHash =
+          location.hash && location.hash.startsWith(`#${target}`)
+            ? location.hash
+            : `#${target}`;
+
+        // If caller passed "program:web", prefer that
+        const requestedHash = rawTarget && String(rawTarget).includes(":")
+          ? `#${rawTarget}`
+          : desiredHash;
+
+        history.replaceState(null, "", requestedHash);
+      }
+
+      // Click-based navigation (navbar buttons)
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-nav]");
+        if (!btn) return;
+        const target = btn.getAttribute("data-target");
+        if (target) showSection(target);
+      });
+
+      // Hash-based navigation (from internal buttons that set window.location.hash)
+      window.addEventListener("hashchange", () => {
+        const raw = location.hash.replace("#", "");
+        showSection(raw || "services");
+      });
+
+      // Initial load
+      window.addEventListener("DOMContentLoaded", () => {
+        const initial = (location.hash || "#services").replace("#", "");
+        showSection(initial);
+      });
+    </script>
+  </body>
+</html>
