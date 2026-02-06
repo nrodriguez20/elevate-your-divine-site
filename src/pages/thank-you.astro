@@ -5,7 +5,25 @@ import Navbar from "../components/Navbar.astro";
 
 <BaseLayout title="Thank you!" description="We received your message.">
   <div id="top">
-    <Navbar />
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50">
+        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+            <a href="/#services" class="flex items-center gap-3">
+            <img
+                src="/images/elevate.PNG"
+                alt="Elevate your Divine logo"
+                class="h-28 w-auto max-w-[220px] object-contain translate-y-2"
+                loading="eager"
+            />
+            </a>
+
+            <nav class="hidden items-center gap-3 md:flex">
+            <a href="/#services" class="btn-ghost inline-flex items-center justify-center">Services</a>
+            <a href="/#program" class="btn-ghost inline-flex items-center justify-center">Program</a>
+            <a href="/#about" class="btn-ghost inline-flex items-center justify-center">About</a>
+            <a href="/#contact" class="btn-solid inline-flex items-center justify-center">Free Consultation</a>
+            </nav>
+        </div>
+        </header>
   </div>
 
   <main class="mx-auto max-w-6xl px-4">
@@ -15,9 +33,9 @@ import Navbar from "../components/Navbar.astro";
         <p class="mt-3 text-zinc-200">
           We received your message and will respond soon.
         </p>
-        <button type="button" data-nav data-target="services" class="btn-solid mt-6">
-          Back to Services
-        </button>
+        <a href="/#services" class="btn-solid mt-6 inline-flex items-center justify-center">
+            Back to Services
+        </a>
       </div>
     </section>
   </main>
