@@ -95,8 +95,8 @@ export default function ServiceTabs() {
     active.key === "web"
       ? { label: "View Web Design Program", hash: "#program:web" }
       : active.key === "bariatric"
-      ? { label: "View Coaching Program", hash: "#program:coaching" }
-      : null;
+        ? { label: "View Coaching Program", hash: "#program:coaching" }
+        : null;
 
   return (
     <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-4 shadow-lg shadow-black/20">

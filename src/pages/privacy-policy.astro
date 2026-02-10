@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+    title="Privacy Policy | Elevate Your Divine"
+    description="Privacy policy for Elevate Your Divine, LLC."
+>
+    <div id="top">
+        <header
+            class="sticky top-0 z-50 overflow-visible border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50"
+        >
+            <div
+                class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4"
+            >
+                <a href="/#top" class="flex items-center gap-3">
+                    <img
+                        src="/images/elevate.PNG"
+                        alt="Elevate your Divine logo"
+                        class="h-28 w-auto max-w-[220px] object-contain translate-y-2"
+                        loading="eager"
+                    />
+                </a>
+
+                <nav class="hidden items-center gap-3 md:flex">
+                    <a
+                        href="/#services"
+                        class="btn-ghost inline-flex items-center justify-center"
+                        >Services</a
+                    >
+                    <a
+                        href="/#program"
+                        class="btn-ghost inline-flex items-center justify-center"
+                        >Program</a
+                    >
+                    <a
+                        href="/#about"
+                        class="btn-ghost inline-flex items-center justify-center"
+                        >About</a
+                    >
+                    <a
+                        href="/#contact"
+                        class="btn-solid inline-flex items-center justify-center"
+                        >Free Consultation</a
+                    >
+                </nav>
+            </div>
+
+            <div class="mx-auto max-w-6xl px-4 pb-3 md:hidden">
+                <div class="flex flex-wrap gap-2">
+                    <a
+                        href="/#services"
+                        class="btn-ghost inline-flex items-center justify-center"
+                        >Services</a
+                    >
+                    <a
+                        href="/#program"
+                        class="btn-ghost inline-flex items-center justify-center"
+                        >Program</a
+                    >
+                    <a
+                        href="/#about"
+                        class="btn-ghost inline-flex items-center justify-center"
+                        >About</a
+                    >
+                    <a
+                        href="/#contact"
+                        class="btn-solid inline-flex items-center justify-center"
+                        >Free Consultation</a
+                    >
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="mx-auto max-w-4xl px-4 py-16">
+        <article class="prose prose-invert max-w-none">
+            <h1 class="text-3xl font-semibold tracking-tight text-white">
+                Privacy Policy
+            </h1>
+
+            <br />
+            <p class="text-sm font-semibold text-zinc-200">
+                Last Updated: February 6, 2026
+            </p>
+
+            <br />
+
+            <p class="text-sm font-semibold text-zinc-200">
+                We respect your privacy and are committed to protecting your
+                personal information.
+            </p>
+
+            <br />
+
+            <h2 class="text-2xl font-semibold tracking-tight text-white">
+                Information We Collect
+            </h2>
+            <p class="text-sm font-semibold text-zinc-200">We may collect:</p>
+            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
+                <li>Name, email, phone number</li>
+                <li>Billing and payment information</li>
+                <li>Booking and appointment details</li>
+                <li>Documents required for notary services</li>
+                <li>Communications sent to us</li>
+            </ul>
+
+            <br />
+            <br />
+
+            <h2 class="text-2xl font-semibold tracking-tight text-white">
+                How We Use Information
+            </h2>
+            <p class="text-sm font-semibold text-zinc-200">
+                Your information is used to:
+            </p>
+            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
+                <li>Provide services</li>
+                <li>Process payments</li>
+                <li>Schedule appointments</li>
+                <li>Communicate with you</li>
+                <li>Meet legal and regulatory obligations</li>
+            </ul>
+
+            <br />
+            <br />
+
+            <h2 class="text-2xl font-semibold tracking-tight text-white">
+                Notary-Specific Privacy
+            </h2>
+            <p class="text-sm font-semibold text-zinc-200">
+                Notary records are maintained as required by Texas law and may
+                be disclosed if legally required.
+            </p>
+
+            <br />
+            <br />
+
+            <h2 class="text-2xl font-semibold tracking-tight text-white">
+                Sharing Information
+            </h2>
+            <p class="text-sm font-semibold text-zinc-200">
+                We do not sell your personal data. Information may be shared
+                with:
+            </p>
+            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
+                <li>Payment processors</li>
+                <li>Scheduling platforms</li>
+                <li>Legal authorities when required by law</li>
+            </ul>
+
+            <br />
+            <br />
+
+            <h2 class="text-2xl font-semibold tracking-tight text-white">
+                Data Security
+            </h2>
+            <p class="text-sm font-semibold text-zinc-200">
+                We take reasonable steps to protect your data but cannot
+                guarantee absolute security of online transmissions.
+            </p>
+
+            <br />
+            <br />
+
+            <h2 class="text-2xl font-semibold tracking-tight text-white">
+                Your Rights
+            </h2>
+            <p class="text-sm font-semibold text-zinc-200">
+                You may request access, correction, or deletion of your personal
+                information, subject to legal retention requirements.
+            </p>
+
+            <br />
+        </article>
+    </main>
+
+    <Footer />
+</BaseLayout>
