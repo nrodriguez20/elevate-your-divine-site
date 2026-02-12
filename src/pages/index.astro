@@ -2,23 +2,24 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import ServiceTabs from "../components/ServiceTabs.jsx";
-import ProgramTabs from "../components/ProgramTabs.jsx";
+import ProgramTabs from "../components/ProgramTabs.tsx";
 import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout
   title="Life Coaching & Web Design for Small Businesses | Elevate Your Divine"
-  ,
   description="Life coaching, bariatric coaching, and modern single-page web design for small businesses. Build clarity, confidence, and an online presence that converts."
-  ,
 >
   <div id="top">
     <Navbar />
   </div>
 
-  <main class="mx-auto max-w-6xl px-4">
-    <!-- HERO (always visible) -->
-    <section class="py-14 md:py-20">
+  <main class="mx-auto max-w-6xl px-4 pt-24 md:pt-16">
+    <!-- HERO (visible ONLY for Home) -->
+    <section
+      data-hero
+      class="py-14 md:py-20 transition-opacity duration-300 opacity-100"
+    >
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
           <p class="text-sm font-semibold tracking-wide text-zinc-300">
@@ -32,19 +33,21 @@ import Footer from "../components/Footer.astro";
           </h1>
 
           <p class="mt-4 text-lg text-zinc-200">
-            Life coaching, web design, and online/mobile notary — built around
-            clarity, convenience, and results.
+            Life coaching and web design — built around clarity, convenience,
+            and results.
           </p>
 
           <div class="mt-6 flex flex-wrap gap-3">
             <button
               type="button"
               data-nav
-              data-target="services"
+              data-target="home"
+              data-scroll="services"
               class="btn-ghost"
             >
               View Services
             </button>
+
             <button
               type="button"
               data-nav
@@ -63,231 +66,236 @@ import Footer from "../components/Footer.astro";
             class="h-full w-full object-cover"
             loading="eager"
           />
-
           <div class="absolute inset-0 bg-black/10"></div>
         </div>
       </div>
-
-      <!-- SERVICES (default visible) -->
-      <section
-        id="services"
-        data-section="services"
-        class="border-t border-white/10 py-14 transition-opacity duration-300 opacity-100"
-      >
-        <div
-          class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
-        >
-          <div>
-            <h2 class="text-3xl font-semibold tracking-tight text-white">
-              Services
-            </h2>
-            <p class="mt-2 text-muted">
-              Click a service to view details — then book a free consultation.
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-8">
-          <ServiceTabs client:load />
-        </div>
-      </section>
-
-      <!-- PROGRAM (hidden on load) -->
-      <section
-        id="program"
-        data-section="program"
-        class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
-      >
-        <h2 class="text-3xl font-semibold tracking-tight text-white">
-          Program
-        </h2>
-        <p class="mt-3 max-w-3xl text-zinc-300">
-          Choose a program to view details.
-        </p>
-
-        <ProgramTabs client:load />
-      </section>
-
-      <!-- ABOUT (hidden on load) -->
-      <section
-        id="about"
-        data-section="about"
-        class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
-      >
-        <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <!-- Left: text + stacked panes -->
-          <div>
-            <h2 class="text-3xl font-semibold tracking-tight text-white">
-              About
-            </h2>
-            <p class="mt-3 text-zinc-300 max-w-xl">
-              A supportive, encouraging, action-focused coaching style — with
-              services designed to elevate confidence and clarity.
-            </p>
-            <br />
-            <p class="mt-3 text-zinc-300 max-w-xl">
-              I'm a passionate life coach dedicated to elevating an individual's
-              divinity by helping identify strengths, overcome self-doubt, and
-              create a life that feels purposeful and balanced. I believe growth
-              starts with self-understanding, and my coaching style is
-              supportive, encouraging, and action-focused. My goal is to aid in
-              elevating and moving forward with confidence and clarity.
-            </p>
-
-            <br />
-            <br />
-
-            <div class="mt-6 grid gap-4">
-              <div class="panel panel-pad">
-                <h3 class="font-semibold text-white">Supportive Coaching</h3>
-                <p class="mt-2 text-sm text-zinc-300">
-                  Identify strengths, overcome self-doubt, and build a
-                  purposeful, balanced life.
-                </p>
-              </div>
-
-              <div class="panel panel-pad">
-                <h3 class="font-semibold text-white">Practical Services</h3>
-                <p class="mt-2 text-sm text-zinc-300">
-                  Web design that converts, and notary services that are
-                  convenient and professional.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: owner image -->
-          <div class="panel overflow-hidden">
-            <div class="relative aspect-[4/5] w-full">
-              <img
-                src="/images/ownerPhoto.jpg"
-                alt="Owner of Elevate your Divine, LLC"
-                class="h-full w-full object-cover"
-                loading="lazy"
-              />
-              <!-- subtle overlay to match theme -->
-              <div class="absolute inset-0 bg-black/5"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT (hidden on load) -->
-      <section
-        id="contact"
-        data-section="contact"
-        class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
-      >
-        <div class="grid gap-10 lg:grid-cols-2">
-          <div>
-            <h2 class="text-3xl font-semibold tracking-tight text-white">
-              Contact
-            </h2>
-            <p class="mt-3 text-muted">
-              Schedule your free consultation. Send a message and we’ll respond
-              soon.
-            </p>
-
-            <div class="mt-4 rounded-2xl bg-white/5 border border-white/15 p-4">
-              <p class="text-sm font-semibold text-white">
-                To help us respond faster, include:
-              </p>
-              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
-                <li>The service/program you’re interested in</li>
-                <li>Your goal and ideal timeline</li>
-                <li>
-                  If this is for a business: what you do and who you serve
-                </li>
-                <li>
-                  Any links (existing website, Instagram, or inspiration
-                  examples)
-                </li>
-              </ul>
-            </div>
-
-            <div class="mt-6 panel panel-pad">
-              <p class="text-sm font-semibold text-zinc-200">Email</p>
-              <a
-                href="mailto:ELEVATEYOURDIVINE@OUTLOOK.COM?subject=Free%20Consultation%20Request"
-                class="mt-1 inline-block text-white underline decoration-white/30 underline-offset-4 hover:decoration-white/60"
-              >
-                ELEVATEYOURDIVINE@OUTLOOK.COM
-              </a>
-            </div>
-          </div>
-
-          <!-- Form layout; wire  later -->
-          <form
-            name="free-consultation"
-            method="POST"
-            action="/thank-you/"
-            data-netlify="true"
-            data-netlify-recaptcha="true"
-            netlify-honeypot="bot-field"
-            class="panel panel-pad"
-          >
-            <!-- Required hidden input so Netlify detects the form -->
-            <input type="hidden" name="form-name" value="free-consultation" />
-
-            <!-- Honeypot field (hidden from real users) -->
-            <p class="hidden">
-              <label>
-                Don’t fill this out if you’re human:
-                <input name="bot-field" />
-              </label>
-            </p>
-
-            <h3 class="text-xl font-semibold text-white">Free Consultation</h3>
-
-            <div class="mt-5 grid gap-4">
-              <label class="grid gap-1">
-                <span class="text-sm font-medium text-zinc-200">Name</span>
-                <input
-                  class="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
-              </label>
-
-              <label class="grid gap-1">
-                <span class="text-sm font-medium text-zinc-200">Email</span>
-                <input
-                  class="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
-                  name="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  required
-                />
-              </label>
-
-              <label class="grid gap-1">
-                <span class="text-sm font-medium text-zinc-200">Phone</span>
-                <input
-                  class="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
-                  name="phone"
-                  placeholder="(555) 555-5555"
-                />
-              </label>
-
-              <label class="grid gap-1">
-                <span class="text-sm font-medium text-zinc-200">Message</span>
-                <textarea
-                  class="min-h-[120px] rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
-                  name="message"
-                  placeholder="How can we help?"
-                  required></textarea>
-              </label>
-
-              <div data-netlify-recaptcha="true"></div>
-
-              <button type="submit" class="btn-solid">Send</button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <Footer />
     </section>
+
+    <!-- HOME (Services underneath Hero) -->
+    <section
+      id="home"
+      data-section="home"
+      class="border-t border-white/10 py-14 transition-opacity duration-300 opacity-100"
+    >
+      <div
+        class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+      >
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight text-white">
+            Services
+          </h2>
+          <p class="mt-2 text-muted">
+            Click a service to view details — then book a free consultation.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <ServiceTabs client:load />
+      </div>
+    </section>
+
+    <!-- COACHING PROGRAM (NO hero) -->
+    <section
+      id="coaching"
+      data-section="coaching"
+      class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
+    >
+      <h2 class="text-3xl font-semibold tracking-tight text-white">
+        Coaching Program
+      </h2>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+        Choose a coaching program to view details.
+      </p>
+
+      <ProgramTabs client:load category="coaching" />
+    </section>
+
+    <!-- WEB DESIGN (NO hero) -->
+    <section
+      id="web"
+      data-section="web"
+      class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
+    >
+      <h2 class="text-3xl font-semibold tracking-tight text-white">
+        Web Design
+      </h2>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+        Web design packages, pricing, and what’s included.
+      </p>
+
+      <ProgramTabs client:load category="web" />
+    </section>
+
+    <!-- ABOUT (NO hero) -->
+    <section
+      id="about"
+      data-section="about"
+      class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
+    >
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight text-white">
+            About
+          </h2>
+          <p class="mt-3 text-zinc-300 max-w-xl">
+            A supportive, encouraging, action-focused coaching style — with
+            services designed to elevate confidence and clarity.
+          </p>
+
+          <br />
+
+          <p class="mt-3 text-zinc-300 max-w-xl">
+            I'm a passionate life coach dedicated to elevating an individual's
+            divinity by helping identify strengths, overcome self-doubt, and
+            create a life that feels purposeful and balanced. I believe growth
+            starts with self-understanding, and my coaching style is supportive,
+            encouraging, and action-focused. My goal is to aid in elevating and
+            moving forward with confidence and clarity.
+          </p>
+
+          <div class="mt-6 grid gap-4">
+            <div class="panel panel-pad">
+              <h3 class="font-semibold text-white">Supportive Coaching</h3>
+              <p class="mt-2 text-sm text-zinc-300">
+                Identify strengths, overcome self-doubt, and build a purposeful,
+                balanced life.
+              </p>
+            </div>
+
+            <div class="panel panel-pad">
+              <h3 class="font-semibold text-white">Practical Services</h3>
+              <p class="mt-2 text-sm text-zinc-300">
+                Web design that converts, and notary services that are
+                convenient and professional.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel overflow-hidden">
+          <div class="relative aspect-[4/5] w-full">
+            <img
+              src="/images/ownerPhoto.jpg"
+              alt="Owner of Elevate your Divine, LLC"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-black/5"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE CONSULTATION (No Hero) -->
+    <section
+      id="contact"
+      data-section="contact"
+      class="border-t border-white/10 py-14 hidden opacity-0 transition-opacity duration-300"
+    >
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight text-white">
+            Contact
+          </h2>
+          <p class="mt-3 text-muted">
+            Schedule your free consultation. Send a message and we’ll respond
+            soon.
+          </p>
+
+          <div class="mt-4 rounded-2xl bg-white/5 border border-white/15 p-4">
+            <p class="text-sm font-semibold text-white">
+              To help us respond faster, include:
+            </p>
+            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
+              <li>The service/program you’re interested in</li>
+              <li>Your goal and ideal timeline</li>
+              <li>If this is for a business: what you do and who you serve</li>
+              <li>
+                Any links (existing website, Instagram, or inspiration examples)
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-6 panel panel-pad">
+            <p class="text-sm font-semibold text-zinc-200">Email</p>
+            <a
+              href="mailto:ELEVATEYOURDIVINE@OUTLOOK.COM?subject=Free%20Consultation%20Request"
+              class="mt-1 inline-block text-white underline decoration-white/30 underline-offset-4 hover:decoration-white/60"
+            >
+              ELEVATEYOURDIVINE@OUTLOOK.COM
+            </a>
+          </div>
+        </div>
+
+        <form
+          name="free-consultation"
+          method="POST"
+          action="/thank-you/"
+          data-netlify="true"
+          data-netlify-recaptcha="true"
+          netlify-honeypot="bot-field"
+          class="panel panel-pad"
+        >
+          <input type="hidden" name="form-name" value="free-consultation" />
+
+          <p class="hidden">
+            <label>
+              Don’t fill this out if you’re human:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <h3 class="text-xl font-semibold text-white">Free Consultation</h3>
+
+          <div class="mt-5 grid gap-4">
+            <label class="grid gap-1">
+              <span class="text-sm font-medium text-zinc-200">Name</span>
+              <input
+                class="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </label>
+
+            <label class="grid gap-1">
+              <span class="text-sm font-medium text-zinc-200">Email</span>
+              <input
+                class="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+            </label>
+
+            <label class="grid gap-1">
+              <span class="text-sm font-medium text-zinc-200">Phone</span>
+              <input
+                class="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
+                name="phone"
+                placeholder="(555) 555-5555"
+              />
+            </label>
+
+            <label class="grid gap-1">
+              <span class="text-sm font-medium text-zinc-200">Message</span>
+              <textarea
+                class="min-h-[120px] rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/40"
+                name="message"
+                placeholder="How can we help?"
+                required></textarea>
+            </label>
+
+            <div data-netlify-recaptcha="true"></div>
+
+            <button type="submit" class="btn-solid">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <Footer />
   </main>
 </BaseLayout>

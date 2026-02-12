@@ -1,15 +1,23 @@
 ---
 const links = [
-  { label: "Services", target: "services" },
-  { label: "Program", target: "program" },
+  { label: "Home", target: "home" },
+  { label: "Coaching Program", target: "coaching" },
+  { label: "Web Design", target: "web" },
   { label: "About", target: "about" },
 ];
 ---
 
-<header class="sticky top-0 z-50 overflow-visible border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50">
+<header
+  class="fixed top-0 left-0 right-0 z-50 overflow-visible border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50"
+>
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-    <!-- Logo: clicking goes to Services -->
-    <button type="button" data-nav data-target="services" class="flex items-center gap-3">
+    <!-- Logo -> Home -->
+    <button
+      type="button"
+      data-nav
+      data-target="home"
+      class="flex items-center gap-3"
+    >
       <img
         src="/images/elevate.PNG"
         alt="Elevate your Divine logo"
@@ -20,11 +28,18 @@ const links = [
 
     <!-- Desktop nav -->
     <nav class="hidden items-center gap-3 md:flex">
-      {links.map((l) => (
-        <button type="button" data-nav data-target={l.target} class="btn-ghost">
-          {l.label}
-        </button>
-      ))}
+      {
+        links.map((l) => (
+          <button
+            type="button"
+            data-nav
+            data-target={l.target}
+            class="btn-ghost"
+          >
+            {l.label}
+          </button>
+        ))
+      }
 
       <button type="button" data-nav data-target="contact" class="btn-solid">
         Free Consultation
@@ -35,11 +50,18 @@ const links = [
   <!-- Mobile nav -->
   <div class="mx-auto max-w-6xl px-4 pb-3 md:hidden">
     <div class="flex flex-wrap gap-2">
-      {links.map((l) => (
-        <button type="button" data-nav data-target={l.target} class="btn-ghost">
-          {l.label}
-        </button>
-      ))}
+      {
+        links.map((l) => (
+          <button
+            type="button"
+            data-nav
+            data-target={l.target}
+            class="btn-ghost"
+          >
+            {l.label}
+          </button>
+        ))
+      }
 
       <button type="button" data-nav data-target="contact" class="btn-solid">
         Free Consultation

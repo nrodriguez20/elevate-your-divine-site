@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -7,74 +8,29 @@ import Footer from "../components/Footer.astro";
     title="Terms & Conditions | Elevate Your Divine"
     description="Terms and conditions for using the Elevate Your Divine website and services."
 >
-    <div id="top">
-        <header
-            class="sticky top-0 z-50 overflow-visible border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50"
-        >
-            <div
-                class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4"
-            >
-                <a href="/#top" class="flex items-center gap-3">
-                    <img
-                        src="/images/elevate.PNG"
-                        alt="Elevate your Divine logo"
-                        class="h-28 w-auto max-w-[220px] object-contain translate-y-2"
-                        loading="eager"
-                    />
-                </a>
+    <Navbar />
 
-                <nav class="hidden items-center gap-3 md:flex">
-                    <a
-                        href="/#services"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Services</a
-                    >
-                    <a
-                        href="/#program"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Program</a
-                    >
-                    <a
-                        href="/#about"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >About</a
-                    >
-                    <a
-                        href="/#contact"
-                        class="btn-solid inline-flex items-center justify-center"
-                        >Free Consultation</a
-                    >
-                </nav>
-            </div>
+    <script is:inline>
+        document.addEventListener("click", (e) => {
+            const btn = e.target.closest("[data-nav]");
+            if (!btn) return;
 
-            <div class="mx-auto max-w-6xl px-4 pb-3 md:hidden">
-                <div class="flex flex-wrap gap-2">
-                    <a
-                        href="/#services"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Services</a
-                    >
-                    <a
-                        href="/#program"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Program</a
-                    >
-                    <a
-                        href="/#about"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >About</a
-                    >
-                    <a
-                        href="/#contact"
-                        class="btn-solid inline-flex items-center justify-center"
-                        >Free Consultation</a
-                    >
-                </div>
-            </div>
-        </header>
-    </div>
+            const target = btn.getAttribute("data-target");
+            if (!target) return;
 
-    <main class="mx-auto max-w-4xl px-4 py-16">
+            const isHome =
+                location.pathname === "/" ||
+                location.pathname.endsWith("/index.html");
+
+            if (!isHome) {
+                e.preventDefault?.();
+                e.stopPropagation?.();
+                location.href = target === "home" ? "/#top" : `/#${target}`;
+            }
+        });
+    </script>
+
+    <main class="mx-auto max-w-6xl px-4 pt-40 md:pt-30">
         <article class="prose prose-invert max-w-none">
             <h1 class="text-3xl font-semibold tracking-tight text-white">
                 Terms & Conditions
@@ -102,10 +58,10 @@ import Footer from "../components/Footer.astro";
             </h2>
             <p class="text-sm font-semibold text-zinc-200">
                 This website is operated by Elevate Your Divine, based in Texas,
-                United States. Contact: <a
-                    href="mailto:elevateyourdivine@outlook.com"
-                    >elevateyourdivine@outlook.com</a
-                >
+                United States. Contact:
+                <a href="mailto:elevateyourdivine@outlook.com">
+                    elevateyourdivine@outlook.com
+                </a>
             </p>
 
             <br />
@@ -124,8 +80,7 @@ import Footer from "../components/Footer.astro";
                 agreements or booking confirmations.
             </p>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Life Coaching Disclaimer
@@ -144,8 +99,7 @@ import Footer from "../components/Footer.astro";
                 consult a licensed professional.
             </p>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Notary Disclaimer (Texas)
@@ -163,15 +117,15 @@ import Footer from "../components/Footer.astro";
                 </li>
             </ul>
 
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Payments & Deposits
             </h2>
             <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
                 <li>
-                    Web design services require a non-refundable deposit before
-                    work begins
+                    Web design services may require a non-refundable deposit
+                    before work begins
                 </li>
                 <li>
                     Remaining balances are due as outlined in your agreement
@@ -180,72 +134,7 @@ import Footer from "../components/Footer.astro";
                     Coaching and notary fees are due before or at the time of
                     service
                 </li>
-                <li>Late payments may delay or suspend services</li>
             </ul>
-
-            <br />
-
-            <h2 class="text-2xl font-semibold tracking-tight text-white">
-                Refund Policy
-            </h2>
-            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
-                <li>Web design deposits are non-refundable</li>
-                <li>Coaching sessions are non-refundable once delivered</li>
-                <li>Notary services are non-refundable once completed</li>
-                <li>Missed appointments and no-shows are not refundable</li>
-            </ul>
-
-            <br />
-
-            <h2 class="text-2xl font-semibold tracking-tight text-white">
-                Intellectual Property (Web Design)
-            </h2>
-            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
-                <li>Ownership transfers only after full payment is received</li>
-                <li>
-                    We retain the right to showcase completed work in our
-                    portfolio
-                </li>
-                <li>
-                    Third-party tools and plugins remain subject to their own
-                    licenses
-                </li>
-            </ul>
-
-            <br />
-
-            <h2 class="text-2xl font-semibold tracking-tight text-white">
-                Limitation of Liability
-            </h2>
-            <p class="text-sm font-semibold text-zinc-200">
-                To the fullest extent permitted by Texas law:
-            </p>
-            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-200">
-                <li>We are not liable for indirect or consequential damages</li>
-                <li>Liability is limited to the amount paid for the service</li>
-                <li>We are not responsible for client decisions or outcomes</li>
-            </ul>
-
-            <br />
-
-            <h2 class="text-2xl font-semibold tracking-tight text-white">
-                Governing Law
-            </h2>
-            <p class="text-sm font-semibold text-zinc-200">
-                These terms are governed by the laws of the State of Texas
-            </p>
-
-            <br />
-
-            <h2 class="text-2xl font-semibold tracking-tight text-white">
-                Contact
-            </h2>
-            <p class="text-sm font-semibold text-zinc-200">
-                Questions regarding these Terms &amp; Conditions can be sent to
-                <a href="mailto:ELEVATEYOURDIVINE@OUTLOOK.COM">
-                    ELEVATEYOURDIVINE@OUTLOOK.COM
-                </a>.
-            </p>
 
             <br />
         </article>

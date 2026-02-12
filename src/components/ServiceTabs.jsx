@@ -91,11 +91,11 @@ export default function ServiceTabs() {
     [activeKey]
   );
 
-  const programButton =
+  const programJump =
     active.key === "web"
-      ? { label: "View Web Design Program", hash: "#program:web" }
+      ? { label: "View Web Design Program", hash: "#web" }
       : active.key === "bariatric"
-        ? { label: "View Coaching Program", hash: "#program:coaching" }
+        ? { label: "View Coaching Program", hash: "#coaching" }
         : null;
 
   return (
@@ -173,15 +173,20 @@ export default function ServiceTabs() {
             {active.cta.label}
           </button>
 
-          {programButton && (
+          {programJump && (
             <button
               type="button"
               onClick={() => {
-                window.location.hash = programButton.hash;
+                // Navigate to the section
+                window.location.hash = programJump.hash;
+
+                // Smooth scroll to top so the user sees the section title/content
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
+
               className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10 transition focus:outline-none focus:ring-2 focus:ring-white/30"
             >
-              {programButton.label}
+              {programJump.label}
             </button>
           )}
 

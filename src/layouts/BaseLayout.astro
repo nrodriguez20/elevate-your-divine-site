@@ -12,6 +12,7 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta
       property="og:title"
       content="Elevate Your Divine — Life Coaching & Web Design"
@@ -26,6 +27,7 @@ const {
       property="og:image"
       content="https://elevateyourdivine.com/images/og-image.jpg"
     />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="description" content={description} />
     <title>{title}</title>
@@ -38,72 +40,42 @@ const {
 
     <script is:inline>
       let hasUserNavigated = false;
-
       const FADE_MS = 300;
 
-      function sectionFromTarget(target) {
-        // Supports "program:web" by extracting "program"
-        return String(target || "").split(":")[0];
+      const ALIASES = {
+        // Backwards compatibility (old targets/hashes)
+        services: "home",
+        program: "coaching",
+        "program:coaching": "coaching",
+        "program:web": "web",
+      };
+
+      function normalizeTarget(rawTarget) {
+        const raw = String(rawTarget || "").replace(/^#/, "");
+
+        // Map legacy values
+        if (ALIASES[raw]) return ALIASES[raw];
+
+        // If someone deep-links like #program:web, map it
+        if (raw.startsWith("program:")) {
+          const mapped = ALIASES[raw];
+          return mapped || "coaching";
+        }
+
+        // Allowed new targets
+        const allowed = new Set([
+          "home",
+          "coaching",
+          "web",
+          "about",
+          "contact",
+        ]);
+        if (allowed.has(raw)) return raw;
+
+        return "home";
       }
 
-      function showSection(rawTarget) {
-        const target = sectionFromTarget(rawTarget);
-
-        const sections = Array.from(
-          document.querySelectorAll("[data-section]"),
-        );
-        const next = document.querySelector(`[data-section="${target}"]`);
-
-        // Fallback to services if unknown
-        if (!next) {
-          if (target !== "services") return showSection("services");
-          return;
-        }
-
-        const current =
-          sections.find((s) => !s.classList.contains("hidden")) || null;
-        if (current === next) {
-          // Still update active nav highlight + URL normalization
-          updateActiveNav(target);
-          ensureHash(target, rawTarget);
-          return;
-        }
-
-        updateActiveNav(target);
-
-        // Fade out current, then show next
-        if (current) {
-          current.classList.add("opacity-0");
-          setTimeout(() => {
-            current.classList.add("hidden");
-            current.classList.remove("opacity-100");
-
-            next.classList.remove("hidden");
-            next.classList.add("opacity-0");
-            requestAnimationFrame(() => {
-              next.classList.remove("opacity-0");
-              next.classList.add("opacity-100");
-            });
-          }, FADE_MS);
-        } else {
-          // First load safety
-          sections.forEach((s) => {
-            s.classList.add("hidden");
-            s.classList.remove("opacity-100");
-            s.classList.add("opacity-0");
-          });
-
-          next.classList.remove("hidden");
-          requestAnimationFrame(() => {
-            next.classList.remove("opacity-0");
-            next.classList.add("opacity-100");
-          });
-        }
-
-        ensureHash(target, rawTarget);
-      }
-
-      function updateActiveNav(target) {
+      function setActiveNav(target) {
         const buttons = document.querySelectorAll("[data-nav]");
         buttons.forEach((b) => {
           const isActive = b.getAttribute("data-target") === target;
@@ -113,41 +85,131 @@ const {
         });
       }
 
-      function ensureHash(target, rawTarget) {
-        // If user did not navigate and the URL had no hash, don't set one.
-        if (!hasUserNavigated && !location.hash) return;
-
-        const desiredHash =
-          location.hash && location.hash.startsWith(`#${target}`)
-            ? location.hash
-            : `#${target}`;
-
-        const requestedHash =
-          rawTarget && String(rawTarget).includes(":")
-            ? `#${rawTarget}`
-            : desiredHash;
-
-        history.replaceState(null, "", requestedHash);
+      function fadeOut(el) {
+        if (!el || el.classList.contains("hidden")) return;
+        el.classList.add("opacity-0");
+        el.classList.remove("opacity-100");
       }
 
-      // Click-based navigation (navbar buttons)
+      function hideEl(el) {
+        if (!el) return;
+        el.classList.add("hidden");
+      }
+
+      function showEl(el) {
+        if (!el) return;
+        el.classList.remove("hidden");
+        el.classList.add("opacity-0");
+        requestAnimationFrame(() => {
+          el.classList.remove("opacity-0");
+          el.classList.add("opacity-100");
+        });
+      }
+
+      function ensureHash(target) {
+        if (!hasUserNavigated && !location.hash) return;
+        history.replaceState(null, "", `#${target}`);
+      }
+
+      function showSection(rawTarget) {
+        const target = normalizeTarget(rawTarget);
+
+        const hero = document.querySelector("[data-hero]");
+        const sections = Array.from(
+          document.querySelectorAll("[data-section]"),
+        );
+        const next = document.querySelector(`[data-section="${target}"]`);
+
+        if (!next) return;
+
+        const current =
+          sections.find((s) => !s.classList.contains("hidden")) || null;
+
+        const shouldShowHero = target === "home";
+        const heroIsVisible = hero && !hero.classList.contains("hidden");
+
+        // If nothing changes, still update nav + hash
+        if (current === next) {
+          setActiveNav(target);
+          // Hero visibility might still need to change
+          if (hero) {
+            if (shouldShowHero && !heroIsVisible) showEl(hero);
+            if (!shouldShowHero && heroIsVisible) {
+              fadeOut(hero);
+              setTimeout(() => hideEl(hero), FADE_MS);
+            }
+          }
+          ensureHash(target);
+          return;
+        }
+
+        setActiveNav(target);
+
+        // Start fades
+        if (current) fadeOut(current);
+        if (hero) {
+          if (!shouldShowHero && heroIsVisible) fadeOut(hero);
+        }
+
+        setTimeout(() => {
+          // Hide old section
+          if (current) hideEl(current);
+
+          // Hide hero if needed
+          if (hero && !shouldShowHero && heroIsVisible) hideEl(hero);
+
+          // Show next section
+          showEl(next);
+
+          // Show hero if needed
+          if (hero && shouldShowHero && !heroIsVisible) showEl(hero);
+        }, FADE_MS);
+
+        ensureHash(target);
+      }
+
+      // Click-based navigation
       document.addEventListener("click", (e) => {
         const btn = e.target.closest("[data-nav]");
         if (!btn) return;
+
         hasUserNavigated = true;
+
         const target = btn.getAttribute("data-target");
-        if (target) showSection(target);
+        const scrollMode = btn.getAttribute("data-scroll"); // optional: "services" | "top" | null
+        if (!target) return;
+
+        showSection(target);
+
+        // Always scroll after a view change unless explicitly scrolling to Services.
+        // This fixes "staying at bottom" when switching sections.
+        setTimeout(() => {
+          if (scrollMode === "services") {
+            const el = document.querySelector('[data-section="home"]');
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+          }
+
+          // Home should go to the top (Hero), not the services section
+          if (target === "home") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+          }
+
+          // For every other section change: scroll to top so the user sees the section header
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, FADE_MS + 30);
       });
 
-      // Hash-based navigation (from internal buttons that set window.location.hash)
+      // Hash-based navigation (deep links)
       window.addEventListener("hashchange", () => {
         const raw = location.hash.replace("#", "");
-        showSection(raw || "services");
+        showSection(raw || "home");
       });
 
       // Initial load
       window.addEventListener("DOMContentLoaded", () => {
-        const initial = (location.hash || "#services").replace("#", "");
+        const initial = (location.hash || "#home").replace("#", "");
         showSection(initial);
       });
     </script>

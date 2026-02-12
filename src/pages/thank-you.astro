@@ -1,42 +1,58 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout title="Thank you!" description="We received your message.">
-  <div id="top">
-    <header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50">
-        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-            <a href="/#services" class="flex items-center gap-3">
-            <img
-                src="/images/elevate.PNG"
-                alt="Elevate your Divine logo"
-                class="h-28 w-auto max-w-[220px] object-contain translate-y-2"
-                loading="eager"
-            />
-            </a>
+  <Navbar />
 
-            <nav class="hidden items-center gap-3 md:flex">
-            <a href="/#services" class="btn-ghost inline-flex items-center justify-center">Services</a>
-            <a href="/#program" class="btn-ghost inline-flex items-center justify-center">Program</a>
-            <a href="/#about" class="btn-ghost inline-flex items-center justify-center">About</a>
-            <a href="/#contact" class="btn-solid inline-flex items-center justify-center">Free Consultation</a>
-            </nav>
-        </div>
-        </header>
-  </div>
+  <script is:inline>
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-nav]");
+      if (!btn) return;
 
-  <main class="mx-auto max-w-6xl px-4">
+      const target = btn.getAttribute("data-target");
+      if (!target) return;
+
+      const isHome =
+        location.pathname === "/" || location.pathname.endsWith("/index.html");
+
+      if (!isHome) {
+        e.preventDefault?.();
+        e.stopPropagation?.();
+        location.href = `/#${target}`;
+      }
+    });
+  </script>
+
+  <main class="mx-auto max-w-6xl px-4 pt-36 md:pt-24">
     <section class="py-14 md:py-20">
       <div class="panel panel-pad">
-        <h1 class="text-3xl font-semibold tracking-tight text-white">Thank you!</h1>
+        <h1 class="text-3xl font-semibold tracking-tight text-white">
+          Thank you!
+        </h1>
         <p class="mt-3 text-zinc-200">
           We received your message and will respond soon.
         </p>
-        <a href="/#services" class="btn-solid mt-6 inline-flex items-center justify-center">
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href="/#home"
+            class="btn-solid inline-flex items-center justify-center"
+          >
             Back to Services
-        </a>
+          </a>
+          <a
+            href="/#contact"
+            class="btn-ghost inline-flex items-center justify-center"
+          >
+            Free Consultation
+          </a>
+        </div>
       </div>
     </section>
+
+    <Footer />
   </main>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -7,74 +8,31 @@ import Footer from "../components/Footer.astro";
     title="Privacy Policy | Elevate Your Divine"
     description="Privacy policy for Elevate Your Divine, LLC."
 >
-    <div id="top">
-        <header
-            class="sticky top-0 z-50 overflow-visible border-b border-white/10 bg-zinc-950/60 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50"
-        >
-            <div
-                class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4"
-            >
-                <a href="/#top" class="flex items-center gap-3">
-                    <img
-                        src="/images/elevate.PNG"
-                        alt="Elevate your Divine logo"
-                        class="h-28 w-auto max-w-[220px] object-contain translate-y-2"
-                        loading="eager"
-                    />
-                </a>
+    <Navbar />
 
-                <nav class="hidden items-center gap-3 md:flex">
-                    <a
-                        href="/#services"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Services</a
-                    >
-                    <a
-                        href="/#program"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Program</a
-                    >
-                    <a
-                        href="/#about"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >About</a
-                    >
-                    <a
-                        href="/#contact"
-                        class="btn-solid inline-flex items-center justify-center"
-                        >Free Consultation</a
-                    >
-                </nav>
-            </div>
+    <!-- If user clicks nav buttons from this page, send them back to homepage sections -->
+    <script is:inline>
+        document.addEventListener("click", (e) => {
+            const btn = e.target.closest("[data-nav]");
+            if (!btn) return;
 
-            <div class="mx-auto max-w-6xl px-4 pb-3 md:hidden">
-                <div class="flex flex-wrap gap-2">
-                    <a
-                        href="/#services"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Services</a
-                    >
-                    <a
-                        href="/#program"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >Program</a
-                    >
-                    <a
-                        href="/#about"
-                        class="btn-ghost inline-flex items-center justify-center"
-                        >About</a
-                    >
-                    <a
-                        href="/#contact"
-                        class="btn-solid inline-flex items-center justify-center"
-                        >Free Consultation</a
-                    >
-                </div>
-            </div>
-        </header>
-    </div>
+            const target = btn.getAttribute("data-target");
+            if (!target) return;
 
-    <main class="mx-auto max-w-4xl px-4 py-16">
+            // On non-home pages, redirect to homepage hash
+            const isHome =
+                location.pathname === "/" ||
+                location.pathname.endsWith("/index.html");
+
+            if (!isHome) {
+                e.preventDefault?.();
+                e.stopPropagation?.();
+                location.href = target === "home" ? "/#top" : `/#${target}`;
+            }
+        });
+    </script>
+
+    <main class="mx-auto max-w-6xl px-4 pt-40 md:pt-30">
         <article class="prose prose-invert max-w-none">
             <h1 class="text-3xl font-semibold tracking-tight text-white">
                 Privacy Policy
@@ -106,8 +64,7 @@ import Footer from "../components/Footer.astro";
                 <li>Communications sent to us</li>
             </ul>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 How We Use Information
@@ -123,8 +80,7 @@ import Footer from "../components/Footer.astro";
                 <li>Meet legal and regulatory obligations</li>
             </ul>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Notary-Specific Privacy
@@ -134,8 +90,7 @@ import Footer from "../components/Footer.astro";
                 be disclosed if legally required.
             </p>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Sharing Information
@@ -150,8 +105,7 @@ import Footer from "../components/Footer.astro";
                 <li>Legal authorities when required by law</li>
             </ul>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Data Security
@@ -161,8 +115,7 @@ import Footer from "../components/Footer.astro";
                 guarantee absolute security of online transmissions.
             </p>
 
-            <br />
-            <br />
+            <br /><br />
 
             <h2 class="text-2xl font-semibold tracking-tight text-white">
                 Your Rights
