@@ -78,6 +78,13 @@ const {
       function setActiveNav(target) {
         const buttons = document.querySelectorAll("[data-nav]");
         buttons.forEach((b) => {
+          // Don't apply active-ring styling to the logo button
+          if (b.hasAttribute("data-nav-logo")) {
+            b.setAttribute("aria-current", "false");
+            b.classList.remove("ring-2", "ring-white/30");
+            return;
+          }
+
           const isActive = b.getAttribute("data-target") === target;
           b.setAttribute("aria-current", isActive ? "page" : "false");
           b.classList.toggle("ring-2", isActive);
