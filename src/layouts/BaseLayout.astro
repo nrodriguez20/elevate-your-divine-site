@@ -5,6 +5,13 @@ const {
   title = "Life Coaching & Web Design for Small Businesses | Elevate Your Divine",
   description = "Life coaching, bariatric coaching, and modern single-page web design for small businesses. Build clarity, confidence, and an online presence that converts.",
 } = Astro.props;
+
+const site = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : Astro.url.origin;
+
+const canonicalUrl = `${site}${Astro.url.pathname}`;
+const ogImageUrl = `${site}/images/og-image.png`;
 ---
 
 <!doctype html>
@@ -12,24 +19,48 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <meta
-      property="og:title"
-      content="Elevate Your Divine — Life Coaching & Web Design"
-    />
-    <meta
-      property="og:description"
-      content="Life coaching, bariatric coaching, and modern web design to help you grow with clarity and confidence."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://elevateyourdivine.com" />
-    <meta
-      property="og:image"
-      content="https://elevateyourdivine.com/images/og-image.jpg"
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph (sharing preview) -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <title>{title}</title>
   </head>
 
