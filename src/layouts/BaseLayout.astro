@@ -31,6 +31,12 @@ const ogImageUrl = `${site}/images/og-image.png`;
     )}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <meta name="description" content={description} />
 
     <!-- Canonical -->
@@ -56,7 +62,7 @@ const ogImageUrl = `${site}/images/og-image.png`;
       href="/icons/apple-touch-icon.png"
     />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#f6f2ea" />
 
     <!-- Open Graph (sharing preview) -->
     <meta property="og:title" content={title} />
@@ -76,7 +82,7 @@ const ogImageUrl = `${site}/images/og-image.png`;
     <title>{title}</title>
   </head>
 
-  <body class="min-h-screen bg-gradient-to-bl from-zinc-900 via-zinc-800 to-zinc-300 text-white antialiased">
+  <body class="min-h-screen">
     <slot />
   </body>
 </html>

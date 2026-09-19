@@ -1,19 +1,93 @@
 @import "tailwindcss";
 
+@theme {
+  --color-canvas: #f6f2ea;
+  --color-surface: #fffdfa;
+  --color-ink: #20211d;
+  --color-ink-muted: #5e5d55;
+  --color-accent: #9a8358;
+  --color-accent-dark: #75613e;
+  --color-line: #d9d1c2;
+  --color-olive: #4e5546;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-medium tracking-[-0.035em] text-ink;
+  }
+
+  h1 {
+    @apply leading-[0.96];
+  }
+
+  h2,
+  h3 {
+    @apply leading-[1.05];
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    @apply bg-accent/25 text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-accent;
+  }
+}
+
 @layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-[72rem] px-5 sm:px-8;
+  }
+
+  .section-space {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
   .panel {
-    @apply rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-lg shadow-black/20;
+    @apply border border-line bg-surface;
   }
+
   .panel-pad {
-    @apply p-6;
+    @apply p-6 md:p-8;
   }
-  .btn-ghost {
-    @apply rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30;
-  }
+
   .btn-solid {
-    @apply rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-white/30;
+    @apply inline-flex items-center justify-center border border-ink bg-ink px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-surface transition hover:border-accent-dark hover:bg-accent-dark focus:outline-none;
   }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center border border-ink/30 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-ink transition hover:border-ink hover:bg-ink/5 focus:outline-none;
+  }
+
   .text-muted {
-    @apply text-zinc-300;
+    @apply text-ink-muted;
+  }
+}
+
+@layer utilities {
+  .text-white {
+    color: var(--color-ink);
+  }
+
+  .text-zinc-200,
+  .text-zinc-300,
+  .text-zinc-400 {
+    color: var(--color-ink-muted);
   }
 }
