@@ -7,25 +7,6 @@ import Footer from "../components/Footer.astro";
 <BaseLayout title="Thank you!" description="We received your message.">
   <Navbar />
 
-  <script is:inline>
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-nav]");
-      if (!btn) return;
-
-      const target = btn.getAttribute("data-target");
-      if (!target) return;
-
-      const isHome =
-        location.pathname === "/" || location.pathname.endsWith("/index.html");
-
-      if (!isHome) {
-        e.preventDefault?.();
-        e.stopPropagation?.();
-        location.href = `/#${target}`;
-      }
-    });
-  </script>
-
   <main class="mx-auto max-w-6xl px-4 pt-36 md:pt-24">
     <section class="py-14 md:py-20">
       <div class="panel panel-pad">
@@ -38,16 +19,16 @@ import Footer from "../components/Footer.astro";
 
         <div class="mt-6 flex flex-wrap gap-3">
           <a
-            href="/#home"
+            href="/#services"
             class="btn-solid inline-flex items-center justify-center"
           >
-            Back to Services
+            Explore Services
           </a>
           <a
             href="/#contact"
             class="btn-ghost inline-flex items-center justify-center"
           >
-            Free Consultation
+            Let's Talk
           </a>
         </div>
       </div>
