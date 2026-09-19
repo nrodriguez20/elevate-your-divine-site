@@ -11,21 +11,41 @@ import Footer from "../components/Footer.astro";
   <Navbar />
 
   <main class="site-container pt-32 md:pt-36">
-    <section id="home" class="section-space pt-8 md:pt-12">
-      <div class="grid items-center gap-10 lg:grid-cols-2">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">Elevate Your Divine, LLC</p>
-          <h1 class="mt-4 text-5xl md:text-7xl">Elevate Your Business. Intentionally.</h1>
-          <p class="mt-5 text-lg leading-8 text-ink-muted">Business. Experience. Excellence.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#services" class="btn-ghost">Explore Services</a>
+    <section id="home" class="section-space pt-8 md:pt-14 lg:pt-16">
+      <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:gap-20 xl:gap-28">
+        <div class="max-w-2xl">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent-dark">
+            Elevate Your Divine, LLC
+          </p>
+
+          <h1 class="mt-5 max-w-xl text-[clamp(3.5rem,6.2vw,6.75rem)]">
+            Elevate Your Business. Intentionally.
+          </h1>
+
+          <p class="mt-7 max-w-xl text-lg leading-8 text-ink-muted md:text-xl md:leading-9">
+            From the way your business looks online to the way your customers experience your brand, we help businesses identify opportunities, strengthen their teams, and create experiences that keep customers coming back.
+          </p>
+
+          <p class="mt-8 border-y border-line py-4 text-xs font-bold uppercase leading-6 tracking-[0.12em] text-olive">
+            Web Design &amp; Development <span aria-hidden="true">|</span> Customer Experience <span aria-hidden="true">|</span> Training &amp; Leadership
+          </p>
+
+          <div class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <a href="#contact" class="btn-solid">Let's Talk About Your Business</a>
+            <a href="#services" class="btn-ghost">Explore Services</a>
           </div>
         </div>
 
-        <div class="panel overflow-hidden aspect-[4/3]">
-          <img src="/images/christyHero.JPG" alt="Elevate Your Divine business consulting" class="h-full w-full object-cover" loading="eager" />
-        </div>
+        <figure class="w-full max-w-[30rem] justify-self-center border border-line bg-surface p-2 lg:justify-self-end">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img
+              src="/images/ownerPhoto.jpg"
+              alt="Portrait of the Elevate Your Divine founder"
+              class="h-full w-full object-cover object-[50%_30%]"
+              loading="eager"
+            />
+          </div>
+        </figure>
       </div>
     </section>
 
