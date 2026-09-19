@@ -12,9 +12,13 @@ import Footer from "../components/Footer.astro";
 
   <main class="site-container pt-32 md:pt-36">
     <section id="home" class="section-space pt-8 md:pt-14 lg:pt-16">
-      <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:gap-20 xl:gap-28">
+      <div
+        class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:gap-20 xl:gap-28"
+      >
         <div class="max-w-2xl">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent-dark">
+          <p
+            class="text-xs font-bold uppercase tracking-[0.18em] text-accent-dark"
+          >
             Elevate Your Divine, LLC
           </p>
 
@@ -22,24 +26,38 @@ import Footer from "../components/Footer.astro";
             Elevate Your Business. Intentionally.
           </h1>
 
-          <p class="mt-7 max-w-xl text-lg leading-8 text-ink-muted md:text-xl md:leading-9">
-            From the way your business looks online to the way your customers experience your brand, we help businesses identify opportunities, strengthen their teams, and create experiences that keep customers coming back.
+          <p
+            class="mt-7 max-w-xl text-lg leading-8 text-ink-muted md:text-xl md:leading-9"
+          >
+            From the way your business looks online to the way your customers
+            experience your brand, we help businesses identify opportunities,
+            strengthen their teams, and create experiences that keep customers
+            coming back.
           </p>
 
-          <p class="mt-8 border-y border-line py-4 text-xs font-bold uppercase leading-6 tracking-[0.12em] text-olive">
-            Web Design &amp; Development <span aria-hidden="true">|</span> Customer Experience <span aria-hidden="true">|</span> Training &amp; Leadership
+          <p
+            class="mt-8 border-y border-line py-4 text-xs font-bold uppercase leading-6 tracking-[0.12em] text-olive"
+          >
+            Web Design &amp; Development <span aria-hidden="true">|</span> Customer
+            Experience <span aria-hidden="true">|</span> Training &amp; Leadership
           </p>
 
-          <div class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-            <a href="#contact" class="btn-solid">Let's Talk About Your Business</a>
+          <div
+            class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+          >
+            <a href="#contact" class="btn-solid"
+              >Let's Talk About Your Business</a
+            >
             <a href="#services" class="btn-ghost">Explore Services</a>
           </div>
         </div>
 
-        <figure class="w-full max-w-[30rem] justify-self-center border border-line bg-surface p-2 lg:justify-self-end">
+        <figure
+          class="w-full max-w-[30rem] justify-self-center border border-line bg-surface p-2 lg:justify-self-end"
+        >
           <div class="aspect-[4/5] overflow-hidden">
             <img
-              src="/images/ownerPhoto.jpg"
+              src="/images/christyHero.JPG"
               alt="Portrait of the Elevate Your Divine founder"
               class="h-full w-full object-cover object-[50%_30%]"
               loading="eager"
@@ -49,50 +67,133 @@ import Footer from "../components/Footer.astro";
       </div>
     </section>
 
+    <section id="business-potential" class="section-space border-t border-line">
+      <div
+        class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.72fr)] lg:gap-20"
+      >
+        <div>
+          <p
+            class="text-xs font-bold uppercase tracking-[0.18em] text-accent-dark"
+          >
+            01 — Business Potential
+          </p>
+          <h2 class="mt-5 max-w-3xl text-4xl md:text-5xl lg:text-6xl">
+            Your business has more potential than its current experience may
+            reveal.
+          </h2>
+        </div>
+
+        <div class="lg:pt-2">
+          <p class="max-w-xl text-lg leading-8 text-ink-muted">
+            Opportunities often surface in the small moments that shape how a
+            business is experienced.
+          </p>
+
+          <ul class="mt-8 border-t border-line">
+            <li class="border-b border-line py-4 text-base leading-7 text-ink">
+              Your website may need an upgrade.
+            </li>
+            <li class="border-b border-line py-4 text-base leading-7 text-ink">
+              Your customers may be experiencing inconsistent service.
+            </li>
+            <li class="border-b border-line py-4 text-base leading-7 text-ink">
+              Your team may need better training.
+            </li>
+            <li class="border-b border-line py-4 text-base leading-7 text-ink">
+              Your managers may need better tools.
+            </li>
+            <li class="border-b border-line py-4 text-base leading-7 text-ink">
+              Your business may simply need an outside perspective.
+            </li>
+          </ul>
+
+          <p class="mt-8 font-display text-3xl text-accent-dark md:text-4xl">
+            That's where we come in.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="services" class="section-space border-t border-line">
       <div class="max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">Services</p>
-        <h2 class="mt-4 text-4xl md:text-5xl">How we help businesses look, operate, and serve.</h2>
+        <p
+          class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
+        >
+          Services
+        </p>
+        <h2 class="mt-4 text-4xl md:text-5xl">
+          How we help businesses look, operate, and serve.
+        </h2>
       </div>
 
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         <article class="panel panel-pad">
           <p class="text-xs font-bold tracking-[0.16em] text-accent-dark">01</p>
           <h3 class="mt-4 text-2xl">Digital Presence</h3>
-          <p class="mt-3 leading-7 text-ink-muted">Web design, development, and strategic digital reviews.</p>
+          <p class="mt-3 leading-7 text-ink-muted">
+            Web design, development, and strategic digital reviews.
+          </p>
         </article>
         <article class="panel panel-pad">
           <p class="text-xs font-bold tracking-[0.16em] text-accent-dark">02</p>
           <h3 class="mt-4 text-2xl">Customer Experience</h3>
-          <p class="mt-3 leading-7 text-ink-muted">Clear insight into the experience your customers actually receive.</p>
+          <p class="mt-3 leading-7 text-ink-muted">
+            Clear insight into the experience your customers actually receive.
+          </p>
         </article>
         <article class="panel panel-pad">
           <p class="text-xs font-bold tracking-[0.16em] text-accent-dark">03</p>
           <h3 class="mt-4 text-2xl">People &amp; Performance</h3>
-          <p class="mt-3 leading-7 text-ink-muted">Training and leadership support for teams built to deliver.</p>
+          <p class="mt-3 leading-7 text-ink-muted">
+            Training and leadership support for teams built to deliver.
+          </p>
         </article>
       </div>
     </section>
 
     <section id="experience-audit" class="section-space border-t border-line">
       <div class="max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">Experience Audit</p>
-        <h2 class="mt-4 text-4xl md:text-5xl">The Elevate Business Experience Audit™</h2>
-        <p class="mt-5 leading-8 text-ink-muted">A strategic assessment of the digital, customer, people, and leadership areas that shape your business experience.</p>
+        <p
+          class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
+        >
+          Experience Audit
+        </p>
+        <h2 class="mt-4 text-4xl md:text-5xl">
+          The Elevate Business Experience Audit™
+        </h2>
+        <p class="mt-5 leading-8 text-ink-muted">
+          A strategic assessment of the digital, customer, people, and
+          leadership areas that shape your business experience.
+        </p>
       </div>
     </section>
 
     <section id="about" class="section-space border-t border-line">
       <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
         <div>
-          <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">About</p>
-          <h2 class="mt-4 text-4xl md:text-5xl">Businesses are built by people.</h2>
-          <p class="mt-5 max-w-xl leading-8 text-ink-muted">Elevate Your Divine helps businesses bring together their digital presence, customer experience, teams, and leadership with greater intention.</p>
+          <p
+            class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
+          >
+            About
+          </p>
+          <h2 class="mt-4 text-4xl md:text-5xl">
+            Businesses are built by people.
+          </h2>
+          <p class="mt-5 max-w-xl leading-8 text-ink-muted">
+            Elevate Your Divine helps businesses bring together their digital
+            presence, customer experience, teams, and leadership with greater
+            intention.
+          </p>
         </div>
 
         <div class="panel overflow-hidden">
           <div class="relative aspect-[4/5] w-full">
-            <img src="/images/ownerPhoto.jpg" alt="Elevate Your Divine founder" class="h-full w-full object-cover" loading="lazy" />
+            <img
+              src="/images/ownerPhoto.jpg"
+              alt="Elevate Your Divine founder"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -101,21 +202,46 @@ import Footer from "../components/Footer.astro";
     <section id="contact" class="section-space border-t border-line">
       <div class="grid gap-10 lg:grid-cols-2">
         <div>
-          <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">Contact</p>
-          <h2 class="mt-4 text-4xl md:text-5xl">Let's Talk About Your Business</h2>
-          <p class="mt-3 text-muted">Tell us how we can help, and we'll respond soon.</p>
+          <p
+            class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
+          >
+            Contact
+          </p>
+          <h2 class="mt-4 text-4xl md:text-5xl">
+            Let's Talk About Your Business
+          </h2>
+          <p class="mt-3 text-muted">
+            Tell us how we can help, and we'll respond soon.
+          </p>
 
           <div class="mt-6 panel panel-pad">
             <p class="text-sm font-semibold text-ink-muted">Email</p>
-            <a href="mailto:ELEVATEYOURDIVINE@OUTLOOK.COM?subject=Business%20Consultation%20Request" class="mt-1 inline-block font-semibold text-ink underline decoration-accent underline-offset-4 hover:text-accent-dark">ELEVATEYOURDIVINE@OUTLOOK.COM</a>
+            <a
+              href="mailto:ELEVATEYOURDIVINE@OUTLOOK.COM?subject=Business%20Consultation%20Request"
+              class="mt-1 inline-block font-semibold text-ink underline decoration-accent underline-offset-4 hover:text-accent-dark"
+              >ELEVATEYOURDIVINE@OUTLOOK.COM</a
+            >
           </div>
         </div>
 
-        <form name="free-consultation" id="consultation-form" method="POST" action="/thank-you/" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" class="panel panel-pad">
+        <form
+          name="free-consultation"
+          id="consultation-form"
+          method="POST"
+          action="/thank-you/"
+          data-netlify="true"
+          data-netlify-recaptcha="true"
+          netlify-honeypot="bot-field"
+          class="panel panel-pad"
+        >
           <input type="hidden" name="form-name" value="free-consultation" />
 
           <p class="hidden">
-            <label>Don't fill this out if you're human:<input name="bot-field" /></label>
+            <label
+              >Don't fill this out if you're human:<input
+                name="bot-field"
+              /></label
+            >
           </p>
 
           <h3 class="text-3xl">Start a Conversation</h3>
@@ -123,19 +249,38 @@ import Footer from "../components/Footer.astro";
           <div class="mt-5 grid gap-4">
             <label class="grid gap-1">
               <span class="text-sm font-semibold text-ink">Name</span>
-              <input class="border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent" name="name" placeholder="Your name" required />
+              <input
+                class="border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent"
+                name="name"
+                placeholder="Your name"
+                required
+              />
             </label>
             <label class="grid gap-1">
               <span class="text-sm font-semibold text-ink">Email</span>
-              <input class="border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent" name="email" type="email" placeholder="you@example.com" required />
+              <input
+                class="border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
             </label>
             <label class="grid gap-1">
               <span class="text-sm font-semibold text-ink">Phone</span>
-              <input class="border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent" name="phone" placeholder="(555) 555-5555" />
+              <input
+                class="border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent"
+                name="phone"
+                placeholder="(555) 555-5555"
+              />
             </label>
             <label class="grid gap-1">
               <span class="text-sm font-semibold text-ink">Message</span>
-              <textarea class="min-h-[120px] border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent" name="message" placeholder="How can we help?" required></textarea>
+              <textarea
+                class="min-h-[120px] border border-line bg-surface px-4 py-3 text-ink placeholder:text-ink-muted outline-none focus:border-accent"
+                name="message"
+                placeholder="How can we help?"
+                required></textarea>
             </label>
             <div data-netlify-recaptcha="true"></div>
             <button type="submit" class="btn-solid">Send</button>
