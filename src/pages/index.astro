@@ -230,6 +230,7 @@ import Footer from "../components/Footer.astro";
 
         <form
           name="free-consultation"
+          id="consultation-form"
           method="POST"
           action="/thank-you/"
           data-netlify="true"
@@ -295,6 +296,27 @@ import Footer from "../components/Footer.astro";
         </form>
       </div>
     </section>
+
+    <script is:inline>
+      // Safe gtag wrapper (won't crash if GA is blocked)
+      function fireEvent(name, params) {
+        if (
+          typeof window !== "undefined" &&
+          typeof window.gtag === "function"
+        ) {
+          window.gtag("event", name, params || {});
+        }
+      }
+
+      const form = document.getElementById("consultation-form");
+      if (form) {
+        form.addEventListener("submit", () => {
+          fireEvent("generate_lead", {
+            form_id: "consultation-form",
+          });
+        });
+      }
+    </script>
 
     <Footer />
   </main>
