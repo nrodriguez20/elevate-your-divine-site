@@ -10,8 +10,11 @@ import Footer from "../components/Footer.astro";
 >
   <Navbar />
 
-  <main class="site-container pt-32 md:pt-36">
-    <section id="home" class="section-space pt-8 md:pt-14 lg:pt-16">
+  <main class="site-container pt-28 md:pt-28">
+    <section
+      id="home"
+      class="section-space pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-8 lg:pb-16"
+    >
       <div
         class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:gap-20 xl:gap-28"
       >
@@ -22,12 +25,14 @@ import Footer from "../components/Footer.astro";
             Elevate Your Divine, LLC
           </p>
 
-          <h1 class="mt-5 max-w-xl text-[clamp(3.5rem,6.2vw,6.75rem)]">
+          <h1
+            class="mt-4 max-w-xl text-[clamp(3.5rem,5.5vw,5.9rem)] leading-[0.92] lg:mt-3"
+          >
             Elevate Your Business. Intentionally.
           </h1>
 
           <p
-            class="mt-7 max-w-xl text-lg leading-8 text-ink-muted md:text-xl md:leading-9"
+            class="mt-5 max-w-xl text-lg leading-8 text-ink-muted md:mt-6 md:text-xl md:leading-9 lg:mt-5"
           >
             From the way your business looks online to the way your customers
             experience your brand, we help businesses identify opportunities,
@@ -36,14 +41,16 @@ import Footer from "../components/Footer.astro";
           </p>
 
           <p
-            class="mt-8 border-y border-line py-4 text-xs font-bold uppercase leading-6 tracking-[0.12em] text-olive"
+            class="mt-6 border-y border-line py-4 text-xs font-bold uppercase leading-6 tracking-[0.12em] text-olive md:mt-7 lg:mt-6"
           >
-            Web Design &amp; Development <span aria-hidden="true">|</span> Customer
-            Experience <span aria-hidden="true">|</span> Training &amp; Leadership
+            <span
+              >Web Design &amp; Development <span aria-hidden="true">|</span> Customer
+              Experience
+            </span><span class="lg:block">Training &amp; Leadership</span>
           </p>
 
           <div
-            class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+            class="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:mt-5"
           >
             <a href="#contact" class="btn-solid"
               >Let's Talk About Your Business</a
