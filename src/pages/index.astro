@@ -5,8 +5,8 @@ import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout
-  title="Business Consulting | Elevate Your Divine"
-  description="Elevate Your Divine helps businesses strengthen their digital presence, customer experience, and teams through intentional consulting."
+  title="Elevate Your Divine | Business Consulting, Customer Experience & Web Design"
+  description="Elevate Your Divine helps businesses strengthen digital presence, customer experience, teams, and leadership through web design, training, and consulting."
 >
   <Navbar />
 
@@ -55,10 +55,10 @@ import Footer from "../components/Footer.astro";
           <div
             class="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:mt-5"
           >
-            <a href="#contact" class="btn-solid"
+            <a href="#contact" data-cta-name="lets_talk_about_your_business" data-cta-location="hero" class="btn-solid"
               >Let's Talk About Your Business</a
             >
-            <a href="#services" class="btn-ghost">Explore Services</a>
+            <a href="#services" data-cta-name="explore_services" data-cta-location="hero" class="btn-ghost">Explore Services</a>
           </div>
         </div>
 
@@ -416,7 +416,7 @@ import Footer from "../components/Footer.astro";
             The audit can stand on its own or become the starting point for a broader engagement. Not sure whether you need a full audit? We can determine the right starting point together.
           </p>
         </div>
-        <a href="#contact" class="btn-solid mt-8 md:mt-0">Start a Conversation</a>
+        <a href="#contact" data-cta-name="start_a_conversation" data-cta-location="experience_audit" class="btn-solid mt-8 md:mt-0">Start a Conversation</a>
       </div>
     </section>
 
@@ -479,7 +479,7 @@ import Footer from "../components/Footer.astro";
           </div>
         </div>
 
-        <a href="#contact" class="mt-10 inline-flex text-sm font-semibold text-ink underline decoration-accent underline-offset-4 hover:text-accent-dark">
+        <a href="#contact" data-cta-name="start_a_conversation" data-cta-location="about" class="mt-10 inline-flex text-sm font-semibold text-ink underline decoration-accent underline-offset-4 hover:text-accent-dark">
           Start a conversation
         </a>
       </div>

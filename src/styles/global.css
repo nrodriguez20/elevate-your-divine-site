@@ -75,6 +75,14 @@
     @apply inline-flex items-center justify-center border border-ink/30 bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-ink transition hover:border-ink hover:bg-ink/5 focus:outline-none;
   }
 
+  .nav-editorial-link {
+    @apply relative inline-flex items-center py-3 text-xs font-bold uppercase tracking-[0.12em] text-ink transition-colors hover:text-ink focus:outline-none after:absolute after:bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100;
+  }
+
+  .nav-editorial-link--emphasis {
+    @apply font-extrabold after:scale-x-100;
+  }
+
   .text-muted {
     @apply text-ink-muted;
   }

@@ -4,33 +4,26 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout title="Thank you!" description="We received your message.">
+<BaseLayout
+  title="Thank You | Elevate Your Divine"
+  description="Thank you for contacting Elevate Your Divine."
+>
   <Navbar />
 
   <main class="site-container pt-32 md:pt-36">
     <section class="section-space pt-8 md:pt-12">
       <div class="panel panel-pad">
         <h1 class="text-4xl md:text-5xl">
-          Thank you!
+          Thank You.
         </h1>
         <p class="mt-4 text-ink-muted">
-          We received your message and will respond soon.
+          We received your message and look forward to learning more about your business.
+        </p>
+        <p class="mt-3 text-ink-muted">
+          We’ll review what you shared and follow up using the contact information provided.
         </p>
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a
-            href="/#services"
-            class="btn-solid inline-flex items-center justify-center"
-          >
-            Explore Services
-          </a>
-          <a
-            href="/#contact"
-            class="btn-ghost inline-flex items-center justify-center"
-          >
-            Let's Talk
-          </a>
-        </div>
+        <a href="/#home" class="btn-ghost mt-6">Back to Home</a>
       </div>
     </section>
 

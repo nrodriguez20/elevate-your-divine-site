@@ -4,7 +4,6 @@ const links = [
   { label: "Services", target: "services" },
   { label: "Experience Audit", target: "experience-audit" },
   { label: "About", target: "about" },
-  { label: "Contact", target: "contact" },
 ];
 
 const cta = { label: "Let's Talk", target: "contact" };
@@ -29,19 +28,24 @@ const cta = { label: "Let's Talk", target: "contact" };
     </a>
 
     <!-- Desktop nav (shows when there's space) -->
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+    <nav class="hidden items-center gap-4 lg:flex xl:gap-6" aria-label="Primary navigation">
       {
         links.map((l) => (
           <a
             href={`/#${l.target}`}
-            class="btn-ghost"
+            class="nav-editorial-link"
           >
             {l.label}
           </a>
         ))
       }
 
-      <a href={`/#${cta.target}`} class="btn-solid">
+      <a
+        href={`/#${cta.target}`}
+        data-cta-name="lets_talk"
+        data-cta-location="header"
+        class="nav-editorial-link nav-editorial-link--emphasis"
+      >
         {cta.label}
       </a>
     </nav>
@@ -89,7 +93,7 @@ const cta = { label: "Let's Talk", target: "contact" };
                 <a
                   href={`/#${l.target}`}
                   data-mobile-nav-link
-                  class="w-full border-b border-line px-3 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-ink transition hover:text-accent-dark focus:outline-none"
+                  class="nav-editorial-link w-full border-b border-line px-3 py-4 text-left"
                 >
                   {l.label}
                 </a>
@@ -99,7 +103,9 @@ const cta = { label: "Let's Talk", target: "contact" };
             <a
               href={`/#${cta.target}`}
               data-mobile-nav-link
-              class="btn-solid mt-2 w-full"
+              data-cta-name="lets_talk"
+              data-cta-location="mobile_header"
+              class="nav-editorial-link nav-editorial-link--emphasis w-full border-b border-line px-3 py-4 text-left"
             >
               {cta.label}
             </a>

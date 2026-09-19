@@ -2,8 +2,8 @@
 import "../styles/global.css";
 
 const {
-  title = "Elevate Your Divine | Business. Experience. Excellence.",
-  description = "Elevate Your Divine helps businesses strengthen their digital presence, customer experience, and teams through intentional consulting.",
+  title = "Elevate Your Divine | Business Consulting, Customer Experience & Web Design",
+  description = "Elevate Your Divine helps businesses strengthen digital presence, customer experience, teams, and leadership through web design, training, and consulting.",
 } = Astro.props;
 
 const site = Astro.site
@@ -84,5 +84,20 @@ const ogImageUrl = `${site}/images/og-image.png`;
 
   <body class="min-h-screen">
     <slot />
+
+    <script is:inline>
+      document.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+
+        const cta = event.target.closest("[data-cta-name]");
+        if (!cta || typeof window.gtag !== "function") return;
+
+        window.gtag("event", "cta_click", {
+          cta_name: cta.getAttribute("data-cta-name"),
+          cta_location: cta.getAttribute("data-cta-location"),
+          destination: cta.getAttribute("href") || "",
+        });
+      });
+    </script>
   </body>
 </html>
