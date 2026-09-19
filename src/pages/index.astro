@@ -421,33 +421,67 @@ import Footer from "../components/Footer.astro";
     </section>
 
     <section id="about" class="section-space border-t border-line">
-      <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+      <div class="max-w-4xl">
+        <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">
+          About
+        </p>
+        <h2 class="mt-4 text-4xl md:text-5xl lg:text-6xl">
+          Businesses are built by people.
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:gap-20">
         <div>
-          <p
-            class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
-          >
-            About
-          </p>
-          <h2 class="mt-4 text-4xl md:text-5xl">
-            Businesses are built by people.
-          </h2>
-          <p class="mt-5 max-w-xl leading-8 text-ink-muted">
-            Elevate Your Divine helps businesses bring together their digital
-            presence, customer experience, teams, and leadership with greater
-            intention.
+          <p class="max-w-2xl font-display text-3xl leading-tight text-ink md:text-4xl">
+            <span class="block">Behind every transaction is a customer.</span>
+            <span class="mt-3 block">Behind every customer experience is an employee.</span>
+            <span class="mt-3 block">Behind every employee is a leader.</span>
+            <span class="mt-3 block text-accent-dark">And behind every successful business is a system that brings all three together.</span>
           </p>
         </div>
 
-        <div class="panel overflow-hidden">
-          <div class="relative aspect-[4/5] w-full">
-            <img
-              src="/images/ownerPhoto.jpg"
-              alt="Elevate Your Divine founder"
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
+        <div class="border-l border-line pl-6 md:pl-8">
+          <p class="leading-8 text-ink-muted">
+            Elevate Your Divine helps businesses bring their digital presence, customer experience, teams, and leadership into better alignment.
+          </p>
+          <p class="mt-5 leading-8 text-ink-muted">
+            The goal is not change for the sake of change. It is to identify where the experience can be clearer, stronger, and more intentional.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-14 border-t border-line pt-10 md:mt-20 md:pt-12">
+        <div class="max-w-xl">
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">
+            Our Approach
+          </p>
+          <h3 class="mt-4 text-3xl md:text-4xl">Clear thinking for connected work.</h3>
+        </div>
+
+        <div class="mt-10 grid border-t border-line md:grid-cols-3">
+          <div class="border-b border-line py-6 md:border-r md:border-b-0 md:py-0 md:pr-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Intentional</p>
+            <p class="mt-4 leading-7 text-ink-muted">
+              Recommendations should solve a real business problem rather than simply follow trends.
+            </p>
+          </div>
+          <div class="border-b border-line py-6 md:border-r md:border-b-0 md:px-8 md:py-0">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Practical</p>
+            <p class="mt-4 leading-7 text-ink-muted">
+              Ideas should be usable, understandable, and realistic for the business implementing them.
+            </p>
+          </div>
+          <div class="py-6 md:py-0 md:pl-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Connected</p>
+            <p class="mt-4 leading-7 text-ink-muted">
+              Digital presence, customer experience, people, and leadership should support one another rather than operate independently.
+            </p>
           </div>
         </div>
+
+        <a href="#contact" class="mt-10 inline-flex text-sm font-semibold text-ink underline decoration-accent underline-offset-4 hover:text-accent-dark">
+          Start a conversation
+        </a>
       </div>
     </section>
 
