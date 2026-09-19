@@ -45,8 +45,11 @@ import Footer from "../components/Footer.astro";
           >
             <span
               >Web Design &amp; Development <span aria-hidden="true">|</span> Customer
-              Experience
-            </span><span class="lg:block">Training &amp; Leadership</span>
+              Experience</span
+            ><span class="ml-1 whitespace-nowrap lg:ml-0 lg:block"
+              ><span class="lg:hidden" aria-hidden="true">| </span>Training &amp;
+              Leadership</span
+            >
           </p>
 
           <div
@@ -62,11 +65,11 @@ import Footer from "../components/Footer.astro";
         <figure
           class="w-full max-w-[30rem] justify-self-center border border-line bg-surface p-2 lg:justify-self-end"
         >
-          <div class="aspect-[4/5] overflow-hidden">
+          <div class="aspect-[3/2] overflow-hidden md:aspect-[4/3] lg:aspect-[4/5]">
             <img
               src="/images/christyHero.JPG"
               alt="Portrait of the Elevate Your Divine founder"
-              class="h-full w-full object-cover object-[50%_30%]"
+              class="h-full w-full object-cover object-[58%_center] md:object-[55%_center] lg:object-[50%_30%]"
               loading="eager"
             />
           </div>
@@ -82,7 +85,7 @@ import Footer from "../components/Footer.astro";
           <p
             class="text-xs font-bold uppercase tracking-[0.18em] text-accent-dark"
           >
-            01 — Business Potential
+            Business Potential
           </p>
           <h2 class="mt-5 max-w-3xl text-4xl md:text-5xl lg:text-6xl">
             Your business has more potential than its current experience may
@@ -122,56 +125,298 @@ import Footer from "../components/Footer.astro";
     </section>
 
     <section id="services" class="section-space border-t border-line">
-      <div class="max-w-3xl">
-        <p
-          class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
-        >
-          Services
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">
+            Services
+          </p>
+          <h2 class="mt-4 text-4xl md:text-5xl">
+            How we help businesses look, operate, and serve.
+          </h2>
+        </div>
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-olive">
+          Look <span aria-hidden="true">→</span> Operate <span aria-hidden="true">→</span> Serve
         </p>
-        <h2 class="mt-4 text-4xl md:text-5xl">
-          How we help businesses look, operate, and serve.
-        </h2>
       </div>
 
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <article class="panel panel-pad">
-          <p class="text-xs font-bold tracking-[0.16em] text-accent-dark">01</p>
-          <h3 class="mt-4 text-2xl">Digital Presence</h3>
-          <p class="mt-3 leading-7 text-ink-muted">
-            Web design, development, and strategic digital reviews.
-          </p>
+      <div class="mt-14 border-t border-line md:mt-20">
+        <article id="digital-presence" class="grid gap-8 border-b border-line py-12 md:py-16 lg:grid-cols-[7rem_minmax(16rem,0.75fr)_minmax(0,1.25fr)] lg:gap-10">
+          <p class="font-display text-5xl leading-none text-accent-dark">01</p>
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Look</p>
+            <h3 class="mt-4 text-4xl md:text-5xl">Digital Presence</h3>
+            <p class="mt-5 text-xl leading-8 text-ink-muted">
+              Make your business impossible to overlook.
+            </p>
+          </div>
+
+          <dl class="border-t border-line">
+            <div class="grid gap-2 border-b border-line py-4 md:grid-cols-[10rem_1fr] md:gap-6">
+              <dt class="font-semibold text-ink">Web Design</dt>
+              <dd class="leading-7 text-ink-muted">Modern, responsive websites designed around your brand and customer.</dd>
+            </div>
+            <div class="grid gap-2 border-b border-line py-4 md:grid-cols-[10rem_1fr] md:gap-6">
+              <dt class="font-semibold text-ink">Web Development</dt>
+              <dd class="leading-7 text-ink-muted">Functional, scalable websites built around your business needs.</dd>
+            </div>
+            <div class="grid gap-2 border-b border-line py-4 md:grid-cols-[10rem_1fr] md:gap-6">
+              <dt class="font-semibold text-ink">Website Refresh</dt>
+              <dd class="leading-7 text-ink-muted">Transform an outdated website into a modern, professional experience.</dd>
+            </div>
+            <div class="grid gap-2 border-b border-line py-4 md:grid-cols-[10rem_1fr] md:gap-6">
+              <dt class="font-semibold text-ink">Landing Pages</dt>
+              <dd class="leading-7 text-ink-muted">Focused pages designed around a product, service, campaign, or offer.</dd>
+            </div>
+            <div class="grid gap-2 border-b border-line py-4 md:grid-cols-[10rem_1fr] md:gap-6">
+              <dt class="font-semibold text-ink">Digital Presence Review</dt>
+              <dd class="leading-7 text-ink-muted">A strategic look at how your business appears online.</dd>
+            </div>
+          </dl>
         </article>
-        <article class="panel panel-pad">
-          <p class="text-xs font-bold tracking-[0.16em] text-accent-dark">02</p>
-          <h3 class="mt-4 text-2xl">Customer Experience</h3>
-          <p class="mt-3 leading-7 text-ink-muted">
-            Clear insight into the experience your customers actually receive.
-          </p>
+
+        <article id="customer-experience" class="grid gap-8 border-b border-line py-12 md:py-16 lg:grid-cols-[7rem_minmax(16rem,0.75fr)_minmax(0,1.25fr)] lg:gap-10">
+          <p class="font-display text-5xl leading-none text-accent-dark">02</p>
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Serve</p>
+            <h3 class="mt-4 text-4xl md:text-5xl">Customer Experience</h3>
+            <p class="mt-5 text-xl leading-8 text-ink-muted">
+              Your customers are telling you something. Are you listening?
+            </p>
+          </div>
+
+          <div class="border-t border-line">
+            <div class="border-b border-line py-5">
+              <h4 class="text-2xl">Secret Shopping</h4>
+              <p class="mt-3 leading-7 text-ink-muted">
+                An objective look at what your customers actually experience—not what management thinks they experience.
+              </p>
+              <div class="mt-5 grid grid-cols-2 gap-x-6 gap-y-2 border-l border-accent pl-4 text-sm leading-6 text-ink-muted sm:grid-cols-3">
+                <span>Greeting</span>
+                <span>Communication</span>
+                <span>Product Knowledge</span>
+                <span>Wait times</span>
+                <span>Professionalism</span>
+                <span>Problem resolution</span>
+                <span>Closing experience</span>
+                <span>Follow-up</span>
+                <span>Overall customer impression</span>
+              </div>
+            </div>
+
+            <div class="py-5">
+              <h4 class="text-2xl">Customer Experience Audit</h4>
+              <p class="mt-3 leading-7 text-ink-muted">
+                Review the customer journey: Discover <span aria-hidden="true">→</span> Enter <span aria-hidden="true">→</span> Interact <span aria-hidden="true">→</span> Purchase <span aria-hidden="true">→</span> Follow-up.
+              </p>
+              <p class="mt-3 leading-7 text-ink-muted">
+                Identify where the customer experience breaks down and where opportunities exist to improve it.
+              </p>
+            </div>
+          </div>
         </article>
-        <article class="panel panel-pad">
-          <p class="text-xs font-bold tracking-[0.16em] text-accent-dark">03</p>
-          <h3 class="mt-4 text-2xl">People &amp; Performance</h3>
-          <p class="mt-3 leading-7 text-ink-muted">
-            Training and leadership support for teams built to deliver.
-          </p>
+
+        <article id="people-performance" class="grid gap-8 pt-12 pb-0 md:pt-16 md:pb-0 lg:grid-cols-[7rem_minmax(16rem,0.75fr)_minmax(0,1.25fr)] lg:gap-10">
+          <p class="font-display text-5xl leading-none text-accent-dark">03</p>
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Operate</p>
+            <h3 class="mt-4 text-4xl md:text-5xl">People &amp; Performance</h3>
+            <p class="mt-5 text-xl leading-8 text-ink-muted">
+              Great customer experiences start with great teams.
+            </p>
+          </div>
+
+          <div class="border-t border-line">
+            <div class="border-b border-line py-5">
+              <h4 class="text-2xl">Management Coaching</h4>
+              <p class="mt-3 leading-7 text-ink-muted">
+                Help managers develop communication, delegation, accountability, planning, and leadership skills.
+              </p>
+            </div>
+
+            <div class="border-b border-line py-5">
+              <h4 class="text-2xl">Staff Training</h4>
+              <p class="mt-3 leading-7 text-ink-muted">
+                Customer service, communication, product knowledge, sales behaviors, and professional standards.
+              </p>
+            </div>
+
+            <div class="py-5">
+              <h4 class="text-2xl">New-Hire / Intern Training</h4>
+              <p class="mt-3 leading-7 text-ink-muted">
+                Create structured onboarding rather than: “Here’s your login. Good luck.”
+              </p>
+              <div class="mt-6 border-l-2 border-accent pl-5">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">The First 30 Days</p>
+                <p class="mt-2 leading-7 text-ink-muted">A structured onboarding framework covering:</p>
+                <ul class="mt-3 grid grid-cols-2 gap-x-5 gap-y-2 text-sm leading-6 text-ink-muted">
+                  <li>Company culture</li>
+                  <li>Customer experience</li>
+                  <li>Systems/processes</li>
+                  <li>Communication</li>
+                  <li>Product/service knowledge</li>
+                  <li>Escalation</li>
+                  <li>Performance expectations</li>
+                  <li>Professional standards</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </section>
 
     <section id="experience-audit" class="section-space border-t border-line">
-      <div class="max-w-3xl">
-        <p
-          class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark"
-        >
+      <div class="max-w-4xl">
+        <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">
           Experience Audit
         </p>
-        <h2 class="mt-4 text-4xl md:text-5xl">
-          The Elevate Business Experience Audit™
+        <h2 class="mt-4 text-4xl md:text-5xl lg:text-6xl">
+          The Elevate Business Experience Audit&trade;
         </h2>
-        <p class="mt-5 leading-8 text-ink-muted">
-          A strategic assessment of the digital, customer, people, and
-          leadership areas that shape your business experience.
+        <p class="mt-6 max-w-2xl text-xl leading-8 text-ink-muted">
+          A comprehensive look at how your business shows up, serves customers, and equips its people to perform.
         </p>
+        <div class="mt-8 max-w-3xl space-y-4 leading-8 text-ink-muted">
+          <p>
+            We evaluate the key touchpoints that shape the experience of your business—from your digital presence to the customer journey and the people responsible for delivering it.
+          </p>
+          <p>
+            The purpose is to identify what is working, where the experience breaks down, and where practical improvements can make the greatest difference.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16 border-y border-line md:mt-20">
+        <div class="flex items-center justify-between border-b border-line py-4">
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Audit Framework</p>
+          <p class="text-xs font-bold uppercase tracking-[0.14em] text-accent-dark">One connected assessment</p>
+        </div>
+
+        <ol>
+          <li class="grid gap-6 border-b border-line py-10 md:py-12 lg:grid-cols-[7rem_minmax(15rem,0.78fr)_minmax(0,1.22fr)] lg:gap-10">
+            <p class="font-display text-5xl leading-none text-accent-dark">01</p>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Look</p>
+              <h3 class="mt-4 text-4xl md:text-5xl">Digital Presence</h3>
+            </div>
+            <div>
+              <p class="max-w-xl leading-8 text-ink-muted">
+                Evaluate how the business presents itself before a customer ever walks through the door or starts a conversation.
+              </p>
+              <ul class="mt-6 grid grid-cols-1 gap-x-8 gap-y-2 border-l border-accent pl-4 text-sm leading-6 text-ink-muted sm:grid-cols-2">
+                <li>Website experience</li>
+                <li>Mobile responsiveness</li>
+                <li>Brand consistency</li>
+                <li>Calls to action</li>
+                <li>Customer journey</li>
+                <li>Digital credibility</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="grid gap-6 border-b border-line py-10 md:py-12 lg:grid-cols-[7rem_minmax(15rem,0.78fr)_minmax(0,1.22fr)] lg:gap-10">
+            <p class="font-display text-5xl leading-none text-accent-dark">02</p>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Serve</p>
+              <h3 class="mt-4 text-4xl md:text-5xl">Customer Experience</h3>
+            </div>
+            <div>
+              <p class="max-w-xl leading-8 text-ink-muted">
+                Evaluate what customers actually experience while interacting with the business.
+              </p>
+              <ul class="mt-6 grid grid-cols-1 gap-x-8 gap-y-2 border-l border-accent pl-4 text-sm leading-6 text-ink-muted sm:grid-cols-2">
+                <li>First impressions</li>
+                <li>Communication</li>
+                <li>Wait times</li>
+                <li>Service consistency</li>
+                <li>Product knowledge</li>
+                <li>Problem resolution</li>
+                <li>Follow-up</li>
+                <li>Overall customer impression</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="grid gap-6 py-10 md:py-12 lg:grid-cols-[7rem_minmax(15rem,0.78fr)_minmax(0,1.22fr)] lg:gap-10">
+            <p class="font-display text-5xl leading-none text-accent-dark">03</p>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-olive">Operate</p>
+              <h3 class="mt-4 text-4xl md:text-5xl">People &amp; Performance</h3>
+            </div>
+            <div>
+              <p class="max-w-xl leading-8 text-ink-muted">
+                Evaluate whether the people and processes behind the business are equipped to consistently deliver the intended experience.
+              </p>
+              <ul class="mt-6 grid grid-cols-1 gap-x-8 gap-y-2 border-l border-accent pl-4 text-sm leading-6 text-ink-muted sm:grid-cols-2">
+                <li>Staff training</li>
+                <li>Management practices</li>
+                <li>Communication</li>
+                <li>Onboarding</li>
+                <li>Role clarity</li>
+                <li>Performance expectations</li>
+                <li>Service standards</li>
+                <li>Operational consistency</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="grid gap-8 border-b border-line py-12 md:py-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(20rem,1.15fr)] lg:gap-20">
+        <h3 class="text-4xl md:text-5xl">The experience is connected.</h3>
+        <div class="space-y-4 leading-8 text-ink-muted">
+          <p>
+            A strong website cannot compensate for inconsistent service. Great employees cannot overcome broken processes. And strong operations lose value when the customer experience does not reflect them.
+          </p>
+          <p>
+            The Elevate Business Experience Audit&trade; looks across these areas together to identify where the experience aligns—and where it does not.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-10 py-12 md:py-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(20rem,1.15fr)] lg:gap-20">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-dark">What You Receive</p>
+          <h3 class="mt-4 text-4xl md:text-5xl">A clearer view of your business.</h3>
+          <p class="mt-5 max-w-md leading-8 text-ink-muted">
+            The audit produces practical findings—not simply observations—so you can make informed decisions about what to address next.
+          </p>
+        </div>
+
+        <dl class="border-t border-line">
+          <div class="grid gap-2 border-b border-line py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+            <dt class="font-semibold text-ink">Experience Assessment</dt>
+            <dd class="leading-7 text-ink-muted">A structured review of the areas evaluated across your digital presence, customer experience, and people.</dd>
+          </div>
+          <div class="grid gap-2 border-b border-line py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+            <dt class="font-semibold text-ink">Key Findings</dt>
+            <dd class="leading-7 text-ink-muted">A concise summary of strengths, inconsistencies, friction points, and opportunities discovered during the audit.</dd>
+          </div>
+          <div class="grid gap-2 border-b border-line py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+            <dt class="font-semibold text-ink">Priority Recommendations</dt>
+            <dd class="leading-7 text-ink-muted">Practical recommendations organized around the areas most likely to improve the overall business experience.</dd>
+          </div>
+          <div class="grid gap-2 border-b border-line py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+            <dt class="font-semibold text-ink">Next-Step Roadmap</dt>
+            <dd class="leading-7 text-ink-muted">A clear starting point for deciding what should be addressed first, what can wait, and where additional support may be valuable.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="border-y border-line py-12 md:flex md:items-end md:justify-between md:gap-10 md:py-16">
+        <div class="max-w-2xl">
+          <h3 class="text-4xl md:text-5xl">See your business from the customer’s perspective.</h3>
+          <p class="mt-5 leading-8 text-ink-muted">
+            Start with a conversation about your business, your current challenges, and what you want to improve.
+          </p>
+          <p class="mt-4 text-sm leading-6 text-ink-muted">
+            The audit can stand on its own or become the starting point for a broader engagement. Not sure whether you need a full audit? We can determine the right starting point together.
+          </p>
+        </div>
+        <a href="#contact" class="btn-solid mt-8 md:mt-0">Start a Conversation</a>
       </div>
     </section>
 
